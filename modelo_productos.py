@@ -1,9 +1,14 @@
 class Productos:
-    def __init__(self):
-        self.listado = []
+    def __init__(self, listado):
+        self.listado = listado
     
     def agregar(self, un_producto):
-        self.listado.append(un_producto)
+        pos = self.buscar(un_producto["codigo"])
+        if pos==-1:
+            self.listado.append(un_producto)
+            return 0
+        else:
+            return 1
     
     def buscar(self, cod): # retorna la posición donde encuentra el código o -1 si no lo encuentra
         n = len(self.listado)
@@ -14,26 +19,17 @@ class Productos:
                 break
         return pos
     
-    def busca_prod(self,cod):
-        pos = self.buscar(cod)
-        if pos>=0:
-            print(self.listado[pos])
-        else:
-            print("No encontrado")
-
     def modificar(self, nuevo_producto):
         pos = self.buscar(nuevo_producto["codigo"])
-        if pos>=0:
-            self.listado[pos] = nuevo_producto
-        else:
-            print("Producto no encontrado")
+        self.listado[pos] = nuevo_producto
 
     def borrar(self, cod):
         pos = self.buscar(cod)
         if pos>=0:
             self.listado.remove(self.listado[pos])
+            return 0
         else:
-            print("Producto no encontrado")
+            return 1
 
     def listar(self):
         n = len(self.listado)
