@@ -1,8 +1,8 @@
 [
     {
         "codigo": "1010",
-        "nombre": "Café expreso",
-        "precio": "4500",
-        "stock": "14"
+        "nombre": "Pandebono",
+        "precio": 1500.0,
+        "stock": 34
     }
 ]
